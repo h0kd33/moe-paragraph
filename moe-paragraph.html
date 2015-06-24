@@ -1,29 +1,33 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../moe-style/moe-style.html">
-<dom-module id="moe-paragraph">    
+<dom-module id="moe-paragraph">
     <style>
     :host {
         display: block;
         box-sizing: border-box;
         line-height: 1.46;
-        color: var(--font-color);     
+        color: var(--font-color);
         word-break: break-all;
     }
-    ::content blockquote {        
+    
+    ::content blockquote {
         color: var(--quote-color);
-    }    
-    :host ::content blockquote::before {        
+    }
+    
+    :host::content blockquote::before {
         content: "\003e\003e";
     }
-    :host ::content a {        
-        color: var(--anchor-color);        
+    
+    :host::content a {
+        color: var(--anchor-color);
         word-break: break-all;
+    }
+    :host::content .ascii-art {
+        font-family:  Meiryo, 'MS PGothic', arial, sans-serif;
     }
     </style>
     <template>
-        <p>
-            <content></content>
-        </p>
+        <content></content>
     </template>
 </dom-module>
 <script>
