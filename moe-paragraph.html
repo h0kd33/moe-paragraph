@@ -1,6 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../moe-style/moe-style.html">
 <dom-module id="moe-paragraph">
+    <link rel="import" type="css" href="../bower_components/css-reset/reset.min.css">
     <style>
     :host {
         display: block;
@@ -26,7 +27,7 @@
         font-family:  Meiryo, 'MS PGothic', arial, sans-serif;
     }
     </style>
-    <template>
+    <template>    
         <content></content>
     </template>
 </dom-module>
@@ -36,7 +37,16 @@ Polymer({
     is: 'moe-paragraph',
 
     properties: {
-
+        paragraph: {
+            type: Object,
+            observer: "_injectHTML"
+        }
+    },
+    _injectHTML: function( para ) {
+        // 創建 <content></content> 插入 HTML 至 root
+        var ele =  document.createElement('content');    
+        ele.innerHTML = para;        
+        Polymer.dom( this.root).insertBefore(ele);
     }
 });
 </script>
