@@ -44,6 +44,7 @@ Polymer({
     },
     _injectHTML: function( para ) {
         // 創建 <content></content> 插入 HTML 至 root
+        Polymer.dom( this.root).innerHTML = "";
         var ele =  document.createElement('content');    
         ele.innerHTML = para;        
         Polymer.dom( this.root).insertBefore(ele);
